@@ -41,7 +41,7 @@ Chart.pluginService.register({
         }
     }
 });*/
-   
+   display_legend = true;
 
     new Chart(document.getElementById("MiGrafica"),{
         
@@ -130,9 +130,9 @@ Chart.pluginService.register({
       text: 'Index de Massa Corporal',
     },
 
-    /*legend: {
-        display: false
-    },*/
+    legend: {
+        display: display_legend
+    },
   }
 });
 
