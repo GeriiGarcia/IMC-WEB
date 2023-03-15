@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script type=""></script>
 
     <style>
       body{background-color: rgba(255, 242, 204, 1);}
-      #MiGrafica{ background-color:  rgba(0,0,0,0.09); }
+      #MiGrafica{ background-color:  rgba(0,0,0,0.09); display: block;}
 	  input{width: 6rem; height: 1.2rem; margin-top: 1rem;}
     </style>
 </head>
@@ -19,9 +20,10 @@
   
 	<input id="altura" type="number" min="1.5" max="1.8" placeholder="Altura (cm)"/>
 	<input id="pes" type="number" min="30" max="130" placeholder="Pes (kg)"/>
+    <button onclick="addData()">Añadir punto</button>
 </body>
 
-<script>/*
+<script id="scri">/*
 Chart.pluginService.register({
     beforeInit: function(chart) {
         // We get the chart data
@@ -43,15 +45,53 @@ Chart.pluginService.register({
         }
     }
 });*/
-   display_legend = true;
+   let display_legend = true;
+   let puntos =  [,,,,,,,,,,,,,,,,60];
+   let puntos2 =  [,,,,,,,,,,,,,,,,50];
 
+
+   let arrayPuntos;
+   let numPuntos = 0;
+
+
+function addData() {
+    
     new Chart(document.getElementById("MiGrafica"),{
         
         type: 'line',
   data: {
     labels: [1.5,1.51,1.52,1.53,1.54,1.55,1.56,1.57,1.58,1.59,1.6,1.61,1.62,1.63,1.64,1.65,1.66,1.67,1.68,1.69,1.7,1.71,1.72,1.73,1.74,1.75,1.76,1.77,1.78,1.79,1.80],
     datasets: [
+    {
+        label: "",
+        
+        data: puntos,
+        
+        backgroundColor: "rgba(0, 0, 0,0.9)",
+        borderColor: "rgba(0, 0, 0, 1)",
+        
+    },
+
+    {
+        label: "Bien",
+        
+        data: puntos,
+        
+        backgroundColor: "rgba(0, 0, 0,0.9)",
+        borderColor: "rgba(0, 0, 0, 1)",
+        
+    },
+
     
+    {
+        label: "Bien",
+        
+        data: puntos2,
+        
+        backgroundColor: "rgba(0, 0, 0,0.9)",
+        borderColor: "rgba(0, 0, 0, 1)",
+        
+    },
     
     {
         label: "Desnutricion",
@@ -128,8 +168,9 @@ Chart.pluginService.register({
   }
 });
 
-
-
+console.log(document.getElementById("scri").innerHTML);
+    
+}
 
 
 
